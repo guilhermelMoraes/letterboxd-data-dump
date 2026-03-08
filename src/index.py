@@ -47,7 +47,7 @@ def import_letterboxd_diary():
 
                 if tmdb_data["id"]:
                     movie["url"] = (
-                        f"https://www.themoviedb.org/movie/{tmdb_data['id']}-{tmdb_data['title'].lower()}"
+                        f"https://www.themoviedb.org/movie/{tmdb_data['id']}-{tmdb_data['title'].lower().replace(' ', '-')}"
                     )
 
                 movie_already_in_list = next(
