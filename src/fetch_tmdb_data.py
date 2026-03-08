@@ -3,6 +3,7 @@ import requests
 
 tmdb_token = os.getenv("TMDB_BEARER_TOKEN")
 
+
 def request_tmdb_data(movie_name, movie_release_year):
     try:
         tmdb_request = requests.get(
