@@ -1,0 +1,184 @@
+{
+    "failed-iteration-1": [
+        {
+            "watch_date": "14/03/2025",
+            "name": "V for Vendetta",
+            "release_year": "2005",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "A Quiet Place Part II",
+            "release_year": "2020",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "Dont F**k with Cats: Hunting an Internet Killer",
+            "release_year": "2019",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "WALLÂ·E",
+            "release_year": "2008",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "AmÃ©lie",
+            "release_year": "2001",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "Zootopia+",
+            "release_year": "2022",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "Kingsman: The Secret Service",
+            "release_year": "2014",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "I Care a Lot",
+            "release_year": "2020",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "Hellboy",
+            "release_year": "2019",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": "http://image.tmdb.org/t/p/w300/bk8LyaMqUtaQ9hUShuvFznQYQKR.jpg",
+            "url": "https://www.themoviedb.org/movie/456740-hellboy"
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "Guns Akimbo",
+            "release_year": "2019",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "16/05/2024",
+            "name": "Brokeback Mountain",
+            "release_year": "2005",
+            "rewatched": 2,
+            "rating": 5.0,
+            "tags": "netflix",
+            "poster": "http://image.tmdb.org/t/p/w300/aByfQOQBNa4CMFwIgq3QrqY2ZHh.jpg",
+            "url": "https://www.themoviedb.org/movie/142-brokeback-mountain"
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "I Love You Phillip Morris",
+            "release_year": "2009",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "14/03/2025",
+            "name": "John Wick: Chapter 3 Parabellum",
+            "release_year": "2019",
+            "rewatched": null,
+            "rating": null,
+            "tags": null,
+            "poster": null,
+            "url": null
+        },
+        {
+            "watch_date": "18/03/2025",
+            "name": "Surfs Up",
+            "release_year": "2007",
+            "rewatched": 2,
+            "rating": 5.0,
+            "tags": null,
+            "poster": "http://image.tmdb.org/t/p/w300/kAeZfUDmuhnL8pLnxxFxBhYVdm6.jpg",
+            "url": "https://www.themoviedb.org/movie/9408-surfs-up"
+        },
+        {
+            "watch_date": "19/04/2025",
+            "name": "Luca",
+            "release_year": "2021",
+            "rewatched": 2,
+            "rating": 5.0,
+            "tags": null,
+            "poster": "http://image.tmdb.org/t/p/w300/9x4i9uKGXt8IiiIF5Ey0DIoY738.jpg",
+            "url": "https://www.themoviedb.org/movie/508943-luca"
+        },
+        {
+            "watch_date": "13/08/2025",
+            "name": "Gran Torino",
+            "release_year": "2008",
+            "rewatched": 2,
+            "rating": 4.0,
+            "tags": "torrent",
+            "poster": "http://image.tmdb.org/t/p/w300/zUybYvxWdAJy5hhYovsXtHSWI1l.jpg",
+            "url": "https://www.themoviedb.org/movie/13223-gran-torino"
+        },
+        {
+            "watch_date": "08/08/2025",
+            "name": "Eternal Sunshine of the Spotless Mind",
+            "release_year": "2004",
+            "rewatched": 2,
+            "rating": 5.0,
+            "tags": "torrent",
+            "poster": "http://image.tmdb.org/t/p/w300/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg",
+            "url": "https://www.themoviedb.org/movie/38-eternal-sunshine-of-the-spotless-mind"
+        },
+        {
+            "watch_date": "16/12/2025",
+            "name": "Sound of Metal",
+            "release_year": "2019",
+            "rewatched": null,
+            "rating": 5.0,
+            "tags": "primevideo",
+            "poster": null,
+            "url": null
+        }
+    ]
+}
