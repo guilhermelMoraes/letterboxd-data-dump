@@ -18,7 +18,17 @@ def import_letterboxd_diary():
         next(csv_reader)
 
         for row in csv_reader:
-            movie = {}
+            movie = {
+                "watch_date": None,
+                "name": None,
+                "release_year": None,
+                "rewatched": None,
+                "rating": None,
+                "tags": None,
+                "poster": None,
+                "id": None,
+                "url": None,
+            }
 
             try:
                 date_obj = datetime.strptime(row[0], "%Y-%m-%d")

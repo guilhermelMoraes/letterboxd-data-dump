@@ -1,4 +1,6 @@
 def format_value(value):
+    if value is None:
+        return "NULL"
     return f"'{value}'" if isinstance(value, str) else str(value)
 
 
