@@ -2,6 +2,7 @@ import csv
 import time
 from datetime import datetime
 from fetch_tmdb_data import request_tmdb_data
+from write_file import write_sql_insert
 
 
 def import_letterboxd_diary():
@@ -12,6 +13,7 @@ def import_letterboxd_diary():
 
         movies = []
         repeated_movies = {}
+        failed_rows = []
 
         next(csv_reader)
 
@@ -64,10 +66,12 @@ def import_letterboxd_diary():
             except Exception as error:
                 print(f"Error processing movie {row[1]}")
                 print(error)
+                failed_rows.append(movie)
             finally:
                 time.sleep(0.3)
 
-    print(movies)
+    for movie in movies:
+        write_sql_insert(movie)
 
 
 import_letterboxd_diary()
