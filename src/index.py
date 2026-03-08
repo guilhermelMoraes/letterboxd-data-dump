@@ -73,5 +73,10 @@ def import_letterboxd_diary():
     for movie in movies:
         write_sql_insert(movie)
 
+    if len(failed_rows) > 0:
+        print(failed_rows)
+    else:
+        print('Writing finished with no errors')
+        
 
 import_letterboxd_diary()
