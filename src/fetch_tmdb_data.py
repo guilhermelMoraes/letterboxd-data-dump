@@ -13,7 +13,7 @@ def request_tmdb_data(movie_name, movie_release_year):
         )
 
         return tmdb_request.json()["results"][0]
-    except requests.exceptions.HTTPError as error:
+    except (requests.exceptions.RequestException, KeyError, IndexError) as error:
         print(f"Error fetching TMDB data for movie {movie_name}")
         print(error)
         return None
