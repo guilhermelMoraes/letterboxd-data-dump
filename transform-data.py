@@ -6,12 +6,6 @@ from datetime import datetime
 
 tmdb_token = os.getenv("TMDB_BEARER_TOKEN")
 
-
-def find_repeated(item):
-    _, value = item
-    return value > 1
-
-
 def import_letterboxd_diary():
     with open("./diary.csv", newline="") as watched_movies:
         csv_reader = csv.reader(watched_movies, delimiter=";", quotechar='"')
@@ -32,12 +26,11 @@ def import_letterboxd_diary():
                 movie["watch_date"] = date_obj.strftime("%d/%m/%Y")
                 movie["name"] = row[1]
                 movie["release_date"] = row[2]
-                movie["url"] = row[3]
 
                 repeated_movies[row[1]] = repeated_movies.get(row[1], 0) + 1
 
                 if row[5] != "":
-                    movie["rewatch"] = row[5]
+                    movie["rewatched"] = repeated_movies[row[1]]
 
                 if row[4] != "":
                     movie["rating"] = float(row[4])
@@ -48,37 +41,39 @@ def import_letterboxd_diary():
                 tmdb_request = requests.get(
                     "https://api.themoviedb.org/3/search/movie",
                     params={"query": row[1], "primary_release_year": row[2]},
-                    headers={"Authorization": "Bearer " + tmdb_token},
+                    headers={"Authorization": f"Bearer {tmdb_token}"},
                 )
 
-                data = tmdb_request.json()["results"][0]
+                tmdb_data = tmdb_request.json()['results'][0]
 
-                # if (data['poster_path'])
+                if tmdb_data["poster_path"]:
+                    movie["poster"] = (
+                        f"http://image.tmdb.org/t/p/w300{tmdb_data['poster_path']}"
+                    )
+
+                if tmdb_data['id']:
+                    movie['url'] = f'https://www.themoviedb.org/movie/{tmdb_data['id']}-{tmdb_data['title'].lower()}'
+
+                movie_already_in_list = next(
+                    (m for m in movies if m["name"] == movie["name"]), None
+                )
+
+                if movie_already_in_list:
+                    movie_already_in_list["rewatched"] = (
+                        movie_already_in_list.get("rewatched", 0) + 1
+                    )
+                else:
+                    movies.append(movie)
 
                 counter += 1
-                print("Rows succesfully processed " + counter)
-
-                movies.append(movie)
+                print(f"Rows succesfully processed {counter} | {row[1]}")
             except Exception as error:
-                print("Error processing movie " + row[1])
+                print(f"Error processing movie {row[1]}")
                 print(error)
             finally:
                 time.sleep(0.3)
 
-    # repeated_movies = dict(filter(find_repeated, repeated_movies.items()))
-
-    # print(repeated_movies)
+    print(movies)
 
 
-# import_letterboxd_diary()
-
-
-tmdb_request = requests.get(
-    "https://api.themoviedb.org/3/search/movie",
-    params={"query": "Interstellar", "primary_release_year": "2014"},
-    headers={"Authorization": "Bearer " + tmdb_token},
-)
-
-teste = tmdb_request.json()
-
-print(teste["results"][0]["poster_path"])
+import_letterboxd_diary()
