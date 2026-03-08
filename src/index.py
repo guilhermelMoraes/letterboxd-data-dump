@@ -56,8 +56,17 @@ def import_letterboxd_diary():
                     )
 
                 if tmdb_data["id"]:
+                    slug = (
+                        tmdb_data["title"]
+                        .lower()
+                        .replace(" ", "-")
+                        .replace(":", "-")
+                        .replace("'", "-")
+                        .replace("·", "-")
+                    )
+
                     movie["url"] = (
-                        f"https://www.themoviedb.org/movie/{tmdb_data['id']}-{tmdb_data['title'].lower().replace(' ', '-')}"
+                        f"https://www.themoviedb.org/movie/{tmdb_data['id']}-{slug}"
                     )
 
                 movie_already_in_list = next(
