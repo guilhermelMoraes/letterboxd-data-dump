@@ -1,13 +1,11 @@
-import os
 import csv
 import time
-import requests
 from datetime import datetime
+from fetch_tmdb_data import request_tmdb_data
 
-tmdb_token = os.getenv("TMDB_BEARER_TOKEN")
 
 def import_letterboxd_diary():
-    with open("./diary.csv", newline="") as watched_movies:
+    with open("../diary.csv", newline="") as watched_movies:
         csv_reader = csv.reader(watched_movies, delimiter=";", quotechar='"')
 
         counter = 0
@@ -25,7 +23,7 @@ def import_letterboxd_diary():
 
                 movie["watch_date"] = date_obj.strftime("%d/%m/%Y")
                 movie["name"] = row[1]
-                movie["release_date"] = row[2]
+                movie["release_year"] = row[2]
 
                 repeated_movies[row[1]] = repeated_movies.get(row[1], 0) + 1
 
@@ -38,21 +36,17 @@ def import_letterboxd_diary():
                 if row[6] != "":
                     movie["tags"] = row[6]
 
-                tmdb_request = requests.get(
-                    "https://api.themoviedb.org/3/search/movie",
-                    params={"query": row[1], "primary_release_year": row[2]},
-                    headers={"Authorization": f"Bearer {tmdb_token}"},
-                )
-
-                tmdb_data = tmdb_request.json()['results'][0]
+                tmdb_data = request_tmdb_data(movie["name"], movie["release_year"])
 
                 if tmdb_data["poster_path"]:
                     movie["poster"] = (
                         f"http://image.tmdb.org/t/p/w300{tmdb_data['poster_path']}"
                     )
 
-                if tmdb_data['id']:
-                    movie['url'] = f'https://www.themoviedb.org/movie/{tmdb_data['id']}-{tmdb_data['title'].lower()}'
+                if tmdb_data["id"]:
+                    movie["url"] = (
+                        f"https://www.themoviedb.org/movie/{tmdb_data['id']}-{tmdb_data['title'].lower()}"
+                    )
 
                 movie_already_in_list = next(
                     (m for m in movies if m["name"] == movie["name"]), None
