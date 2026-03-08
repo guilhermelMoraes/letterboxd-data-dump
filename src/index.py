@@ -70,13 +70,12 @@ def import_letterboxd_diary():
             finally:
                 time.sleep(0.3)
 
-    for movie in movies:
-        write_sql_insert(movie)
+    write_sql_insert(movies)
 
     if len(failed_rows) > 0:
         print(failed_rows)
     else:
-        print('Writing finished with no errors')
-        
+        print("Writing finished with no errors")
+
 
 import_letterboxd_diary()
